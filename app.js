@@ -21,7 +21,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 // app.use(express.static(path.join(__dirname, 'public')));
 
-app.use("/", async (req, res, next) => {
+app.get("/", async (req, res, next) => {
   const locKey = process.env.LOCATION_KEY;
   const locResponse = await fetch(
     `http://api.ipstack.com/${req.ip}?access_key=${locKey}`
